@@ -8,7 +8,7 @@ import { ChatVideoButton } from "./chat-video-button";
 
 interface ChatHeaderProps {
   serverId: string;
-  name: string;
+  name: string | undefined;
   type: "channel" | "conversation";
   imageUrl?: string;
 }

@@ -7,7 +7,7 @@ import { db } from "@/lib/db";
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponseServerIo,
-) {
+) { 
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
@@ -15,7 +15,8 @@ export default async function handler(
   try {
     const profile = await currentProfilePages(req);
     const { content, fileUrl } = req.body;
-    const { conversationId } = req.query;
+    const { conversationId } = req.query; 
+    
     
     if (!profile) {
       return res.status(401).json({ error: "Unauthorized" });
@@ -30,31 +31,38 @@ export default async function handler(
     }
 
 
+    const currentMember=await db.member.findFirst({
+      where:{
+        profileId:profile.id,
+      }
+    })
+
+
     const conversation = await db.conversation.findFirst({
       where: {
         id: conversationId as string,
         OR: [
           {
-            memberOne: {
-              profileId: profile.id,
-            }
+            memberOneId:  currentMember?.id,
+            
           },
           {
-            memberTwo: {
-              profileId: profile.id,
-            }
+            memberTwoId: currentMember?.id,
+            
           }
         ]
       }
     })
 
     if (!conversation) {
+      console.log("yes")
       return res.status(404).json({ message: "Conversation not found" });
     }
 
-    const memberId = conversation.memberOneId === profile.id ? conversation.memberOneId : conversation.memberTwoId
+    const memberId = currentMember?.id;
 
     if (!memberId) {
+      console.log("no");
       return res.status(404).json({ message: "Member not found" });
     }
 

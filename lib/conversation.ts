@@ -18,18 +18,6 @@ const findConversation = async (memberOneId: string, memberTwoId: string) => {
           { memberOneId: memberOneId },
           { memberTwoId: memberTwoId },
         ]
-      },
-      include: {
-        memberOne: {
-          include: {
-            profile: true,
-          }
-        },
-        memberTwo: {
-          include: {
-            profile: true,
-          }
-        }
       }
     });
   } catch {
@@ -40,21 +28,9 @@ const findConversation = async (memberOneId: string, memberTwoId: string) => {
 const createNewConversation = async (memberOneId: string, memberTwoId: string) => {
   try {
     return await db.conversation.create({
-      data: {
+      data: { 
         memberOneId,
         memberTwoId,
-      },
-      include: {
-        memberOne: {
-          include: {
-            profile: true,
-          }
-        },
-        memberTwo: {
-          include: {
-            profile: true,
-          }
-        }
       }
     })
   } catch {

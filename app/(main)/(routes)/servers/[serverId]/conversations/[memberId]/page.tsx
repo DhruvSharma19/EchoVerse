@@ -33,10 +33,7 @@ const MemberIdPage = async ({
     where: {
       serverId: params.serverId,
       profileId: profile.id,
-    },
-    include: {
-      profile: true,
-    },
+    }
   });
 
   if (!currentMember) {
@@ -49,15 +46,38 @@ const MemberIdPage = async ({
     return redirect(`/servers/${params.serverId}`);
   }
 
-  const { memberOne, memberTwo } = conversation;
+  const { memberOneId, memberTwoId } = conversation;
 
-  const otherMember = memberOne.profileId === profile.id ? memberTwo : memberOne;
+
+  const otherMemberId = memberOneId === currentMember.id ? memberTwoId : memberOneId;
+
+
+  const otherMember=await db.member.findFirst({
+    where:{
+      id:otherMemberId,
+    }
+  }) 
+
+  if(!otherMember){
+    return redirect(`/servers/${params.serverId}`);
+  }
+
+  const otherMemberProfile=await db.profile.findFirst({
+    where:{
+      id:otherMember.profileId,
+    }
+  })
+
+  if(!otherMemberProfile){
+    return redirect(`/servers/${params.serverId}`);
+  }
+
 
   return ( 
     <div className="bg-white dark:bg-[#313338] flex flex-col h-full">
       <ChatHeader
-        imageUrl={otherMember.profile.imageUrl}
-        name={otherMember.profile.name}
+        imageUrl={otherMemberProfile.imageUrl}
+        name={otherMemberProfile.name}
         serverId={params.serverId}
         type="conversation"
       />
@@ -72,7 +92,7 @@ const MemberIdPage = async ({
         <>
           <ChatMessages
             member={currentMember}
-            name={otherMember.profile.name}
+            name={otherMemberProfile.name}
             chatId={conversation.id}
             type="conversation"
             apiUrl="/api/direct-messages"
@@ -84,7 +104,7 @@ const MemberIdPage = async ({
             }}
           />
           <ChatInput
-            name={otherMember.profile.name}
+            name={otherMemberProfile.name}
             type="conversation"
             apiUrl="/api/socket/direct-messages"
             query={{
