@@ -1,0 +1,96 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db { 
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Profile {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId // Using auto() for MongoDB's ObjectId
+  userId   String @unique
+  name     String @unique
+  imageUrl String
+  email    String @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Server {
+  id         String @id @default(auto()) @map("_id") @db.ObjectId // Using auto() for MongoDB's ObjectId
+  name       String @unique
+  imageUrl    String
+  inviteCode String @unique
+  profileId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum MemberRole {
+  ADMIN
+  MODERATOR
+  GUEST
+}
+
+model Member {
+  id         String @id @default(auto()) @map("_id") @db.ObjectId // Using auto() for MongoDB's ObjectId
+  role       MemberRole @default(GUEST)
+  profileId  String
+  serverId   String
+
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+enum ChannelType {
+  TEXT
+  AUDIO
+  VIDEO
+}
+
+model Channel {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId // Using auto() for MongoDB's ObjectId
+  name     String
+  type     ChannelType @default(TEXT)
+  profileId String
+  serverId String
+ 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Message {
+  id         String @id @default(auto()) @map("_id") @db.ObjectId // Using auto() for MongoDB's ObjectId
+  content    String
+  fileUrl    String?
+  memberId    String
+  channelId   String
+  deleted    Boolean
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Conversation {
+  id           String @id @default(auto()) @map("_id") @db.ObjectId // Using auto() for MongoDB's ObjectId
+  memberOneId  String
+  memberTwoId  String
+
+  @@unique([memberOneId, memberTwoId])
+}
+
+model DirectMessage {
+  id            String @id @default(auto()) @map("_id") @db.ObjectId // Using auto() for MongoDB's ObjectId
+  content       String
+  fileUrl       String?
+  memberId      String
+  conversationId String
+  deleted       Boolean
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
