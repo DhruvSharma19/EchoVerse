@@ -26,19 +26,22 @@ export default async function handler(
       return res.status(400).json({ error: "Conversation ID missing" });
     }
 
+    const profileMember=await db.member.findFirst({
+      where:{
+        profileId:profile.id,
+      }
+    })
+
     const conversation = await db.conversation.findFirst({
       where: {
         id: conversationId as string,
         OR: [
           {
-            memberOne: {
-              profileId: profile.id,
-            }
+            memberOneId:profileMember?.id
           },
           {
-            memberTwo: {
-              profileId: profile.id,
-            }
+            memberTwoId:profileMember?.id,
+            
           }
         ]
       },
@@ -48,7 +51,7 @@ export default async function handler(
       return res.status(404).json({ error: "Conversation not found" });
     }
 
-    const memberId = conversation.memberOneId === profile.id ? conversation.memberOneId : conversation.memberTwoId;
+    const memberId = conversation.memberOneId === profileMember?.id ? conversation.memberOneId : conversation.memberTwoId;
     
     const member=await db.member.findFirst({
       where:{
