@@ -1,90 +1,67 @@
-# Fullstack Discord Clone: Next.js 13, React, Socket.io, Prisma, Tailwind, MySQL | Full Course 2023
+# EchoVerse - Real-time Messaging and Communication Web Application
 
-![Copy of Copy of Copy of Fullstack Twitter Clone (5)](https://github.com/AntonioErdeljac/next13-discord-clone/assets/23248726/14e25e4f-eb83-44dd-8b97-4f2666b89386)
+EchoVerse is a feature-rich web application that enables real-time messaging, multimedia sharing, and interactive communication among users. Built using cutting-edge technologies and a user-friendly interface, EchoVerse facilitates seamless communication and collaboration between individuals or groups. This README provides an overview of the project, its features, and the technology stack used.
 
+## Features
 
-This is a repository for Fullstack Discord Clone: Next.js 13, React, Socket.io, Prisma, Tailwind, MySQL | Full Course 2023
+### 1. Real-time Messaging using Socket.io
+- Instantly exchange messages with other users in real time.
 
-[VIDEO TUTORIAL](https://www.youtube.com/watch?v=ZbX4Ok9YX94)
+### 2. Send Attachments as Messages using UploadThing
+- Share files, images, and multimedia seamlessly within the conversation.
 
-Features:
+### 3. Edit and Delete Messages in Real Time
+- Modify or remove messages with updates reflected to all users in real time.
 
-- Real-time messaging using Socket.io
-- Send attachments as messages using UploadThing
-- Delete & Edit messages in real time for all users
-- Create Text, Audio and Video call Channels
-- 1:1 conversation between members
-- 1:1 video calls between members
-- Member management (Kick, Role change Guest / Moderator)
-- Unique invite link generation & full working invite system
-- Infinite loading for messages in batches of 10 (tanstack/query)
-- Server creation and customization
-- Beautiful UI using TailwindCSS and ShadcnUI
-- Full responsivity and mobile UI
-- Light / Dark mode
-- Websocket fallback: Polling with alerts
-- ORM using Prisma
-- MySQL database using Planetscale
-- Authentication with Clerk
+### 4. Create Text, Audio, and Video Call Channels
+- Establish various communication channels, including text, audio, and video calls.
 
-### Prerequisites
+### 5. 1:1 Conversation Between Members
+- Engage in private one-on-one conversations with other members.
 
-**Node version 18.x.x**
+### 6. 1:1 Video Calls Between Members
+- Make video calls with other members, enhancing visual communication.
 
-### Cloning the repository
+### 7. Member Management
+- Administer the community by managing members, including kicking users and changing roles from guest to moderator.
 
-```shell
-git clone https://github.com/AntonioErdeljac/next13-discord-clone.git
-```
+### 8. Unique Invite Link Generation & Invite System
+- Generate unique invite links for users and establish a comprehensive invite system for user onboarding.
 
-### Install packages
+### 9. Infinite Loading for Messages
+- Enjoy a seamless experience with infinite message loading in batches of 10 using Tanstack/Query.
 
-```shell
-npm i
-```
+### 10. Server Creation and Customization
+- Set up and customize servers to meet your specific requirements.
 
-### Setup .env file
+### 11. Beautiful UI
+- EchoVerse boasts a visually appealing user interface crafted using TailwindCSS and ShadcnUI.
 
+### 12. Full Responsivity and Mobile UI
+- Access EchoVerse from various devices, thanks to its responsive design.
 
-```js
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
-CLERK_SECRET_KEY=
-NEXT_PUBLIC_CLERK_SIGN_IN_URL=
-NEXT_PUBLIC_CLERK_SIGN_UP_URL=
-NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=
-NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=
+### 13. Light/Dark Mode
+- Choose between light and dark modes to suit your preferences.
 
+### 14. Websocket Fallback: Polling with Alerts
+- Ensure robust connectivity with a WebSocket fallback mechanism and receive alerts for any disruptions.
 
-DATABASE_URL=
+### 15. ORM using Prisma
+- Employ Prisma for seamless interaction with databases and managing application data.
 
-UPLOADTHING_SECRET=
-UPLOADTHING_APP_ID=
+### 16. NoSQL Database using MongoDB
+- Store and manage data efficiently using MongoDB as the NoSQL database.
 
-LIVEKIT_API_KEY=
-LIVEKIT_API_SECRET=
-NEXT_PUBLIC_LIVEKIT_URL=
-```
+### 17. Authentication with Clerk
+- Implement secure user authentication using Clerk to safeguard user data.
 
-### Setup Prisma
-
-Add MySQL Database (I used PlanetScale)
-
-```shell
-npx prisma generate
-npx prisma db push
-
-```
-
-### Start the app
-
-```shell
-npm run dev
-```
-
-## Available commands
-
-Running commands with npm `npm run [command]`
-
-| command         | description                              |
-| :-------------- | :--------------------------------------- |
-| `dev`           | Starts a development instance of the app |
+### 18. Tech Stack
+- **Next.js**: For building the frontend and server-side rendering.
+- **TypeScript**: For enhanced code quality and reliability.
+- **Socket.io**: Enabling real-time messaging.
+- **UploadThing**: Facilitating attachment uploads.
+- **Livekit**: Supporting audio and video call functionality.
+- **MongoDB**: For NoSQL data storage.
+- **Prisma**: To interact with the database efficiently.
+- **Clerk**: For user authentication.
+- **Convex**: Additional technologies to enhance the application's functionality.
