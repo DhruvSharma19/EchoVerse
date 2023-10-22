@@ -2,6 +2,8 @@
 
 EchoVerse is a feature-rich web application that enables real-time messaging, multimedia sharing, and interactive communication among users. Built using cutting-edge technologies and a user-friendly interface, EchoVerse facilitates seamless communication and collaboration between individuals or groups. This README provides an overview of the project, its features, and the technology stack used.
 
+Website Link: https://discord-zeta-black.vercel.app/
+
 ## Features
 
 ### 1. Real-time Messaging using Socket.io
