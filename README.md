@@ -66,4 +66,3 @@ Website Link: https://discord-zeta-black.vercel.app/
 - **MongoDB**: For NoSQL data storage.
 - **Prisma**: To interact with the database efficiently.
 - **Clerk**: For user authentication.
-- **Convex**: Additional technologies to enhance the application's functionality.
