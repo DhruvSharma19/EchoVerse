@@ -7,11 +7,11 @@ import { db } from "@/lib/db";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponseServerIo,
+  res: NextApiResponseServerIo
 ) {
   if (req.method !== "DELETE" && req.method !== "PATCH") {
     return res.status(405).json({ error: "Method not allowed" });
-  } 
+  }
 
   try {
     const profile = await currentProfilePages(req);
@@ -30,22 +30,22 @@ export default async function handler(
       return res.status(400).json({ error: "Channel ID missing" });
     }
 
-    const member=await db.member.findFirst({
-      where:{
-        profileId:profile.id,
-        serverId:serverId as string,
-      }
-    })
+    const member = await db.member.findFirst({
+      where: {
+        profileId: profile.id,
+        serverId: serverId as string,
+      },
+    });
 
-    if(!member){
+    if (!member) {
       return res.status(401).json({ error: "Unauthorized" });
     }
 
     const server = await db.server.findFirst({
       where: {
         id: serverId as string,
-      }
-    })
+      },
+    });
 
     if (!server) {
       return res.status(404).json({ error: "Server not found" });
@@ -57,12 +57,10 @@ export default async function handler(
         serverId: serverId as string,
       },
     });
-  
+
     if (!channel) {
       return res.status(404).json({ error: "Channel not found" });
     }
-
-    
 
     if (!member) {
       return res.status(404).json({ error: "Member not found" });
@@ -73,7 +71,7 @@ export default async function handler(
         id: messageId as string,
         channelId: channelId as string,
       },
-    })
+    });
 
     if (!message || message.deleted) {
       return res.status(404).json({ error: "Message not found" });
@@ -98,7 +96,7 @@ export default async function handler(
           content: "This message has been deleted.",
           deleted: true,
         },
-      })
+      });
     }
 
     if (req.method === "PATCH") {
@@ -112,8 +110,8 @@ export default async function handler(
         },
         data: {
           content,
-        }
-      })
+        },
+      });
     }
 
     const updateKey = `chat:${channelId}:messages:update`;

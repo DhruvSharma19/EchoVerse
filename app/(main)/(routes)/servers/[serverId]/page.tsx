@@ -7,12 +7,10 @@ import { db } from "@/lib/db";
 interface ServerIdPageProps {
   params: {
     serverId: string;
-  }
-};
+  };
+}
 
-const ServerIdPage = async ({
-  params
-}: ServerIdPageProps) => {
+const ServerIdPage = async ({ params }: ServerIdPageProps) => {
   const profile = await currentProfile();
 
   if (!profile) {
@@ -22,12 +20,11 @@ const ServerIdPage = async ({
   const channel = await db.channel.findFirst({
     where: {
       serverId: params.serverId,
-      
     },
     orderBy: {
-      createdAt: "asc"
-    }
-  })
+      createdAt: "asc",
+    },
+  });
 
   const initialChannel = channel;
 
@@ -35,7 +32,7 @@ const ServerIdPage = async ({
     return null;
   }
 
-  return redirect(`/servers/${params.serverId}/channels/${initialChannel?.id}`)
-}
- 
+  return redirect(`/servers/${params.serverId}/channels/${initialChannel?.id}`);
+};
+
 export default ServerIdPage;

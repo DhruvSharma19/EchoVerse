@@ -6,8 +6,8 @@ import { db } from "@/lib/db";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponseServerIo,
-) { 
+  res: NextApiResponseServerIo
+) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
@@ -15,47 +15,42 @@ export default async function handler(
   try {
     const profile = await currentProfilePages(req);
     const { content, fileUrl } = req.body;
-    const { conversationId } = req.query; 
-    
-    
+    const { conversationId } = req.query;
+
     if (!profile) {
       return res.status(401).json({ error: "Unauthorized" });
-    }    
-  
+    }
+
     if (!conversationId) {
       return res.status(400).json({ error: "Conversation ID missing" });
     }
-          
+
     if (!content) {
       return res.status(400).json({ error: "Content missing" });
     }
 
-
-    const currentMember=await db.member.findFirst({
-      where:{
-        profileId:profile.id,
-      }
-    })
-
+    const currentMember = await db.member.findFirst({
+      where: {
+        profileId: profile.id,
+      },
+    });
 
     const conversation = await db.conversation.findFirst({
       where: {
         id: conversationId as string,
         OR: [
           {
-            memberOneId:  currentMember?.id,
-            
+            memberOneId: currentMember?.id,
           },
           {
             memberTwoId: currentMember?.id,
-            
-          }
-        ]
-      }
-    })
+          },
+        ],
+      },
+    });
 
     if (!conversation) {
-      console.log("yes")
+      console.log("yes");
       return res.status(404).json({ message: "Conversation not found" });
     }
 
@@ -72,10 +67,9 @@ export default async function handler(
         fileUrl,
         conversationId: conversationId as string,
         memberId: memberId,
-        deleted:false,
+        deleted: false,
       },
-      
-    }); 
+    });
 
     const channelKey = `chat:${conversationId}:messages`;
 
@@ -84,6 +78,6 @@ export default async function handler(
     return res.status(200).json(message);
   } catch (error) {
     console.log("[DIRECT_MESSAGES_POST]", error);
-    return res.status(500).json({ message: "Internal Error" }); 
+    return res.status(500).json({ message: "Internal Error" });
   }
 }

@@ -6,32 +6,30 @@ import { db } from "@/lib/db";
 export async function GET(
   req: Request,
   { params }: { params: { serverId: string } }
-){
-  try{
+) {
+  try {
     const profile = await currentProfile();
 
     if (!profile) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
-    const server=await db.server.findFirst({
-      where:{ 
-        id:params.serverId,
-      }
-    })
+    const server = await db.server.findFirst({
+      where: {
+        id: params.serverId,
+      },
+    });
 
-    if(!server){
+    if (!server) {
       return new NextResponse("No Server Found", { status: 400 });
     }
 
     return NextResponse.json(server);
-  }
-  catch(error){
+  } catch (error) {
     console.log("[SERVER_ID_GET]", error);
     return new NextResponse("Internal Error", { status: 500 });
   }
 }
-
 
 export async function DELETE(
   req: Request,
@@ -48,7 +46,7 @@ export async function DELETE(
       where: {
         id: params.serverId,
         profileId: profile.id,
-      }
+      },
     });
 
     return NextResponse.json(server);
@@ -78,7 +76,7 @@ export async function PATCH(
       data: {
         name,
         imageUrl,
-      }
+      },
     });
 
     return NextResponse.json(server);

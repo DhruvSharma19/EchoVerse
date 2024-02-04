@@ -4,11 +4,7 @@ import { MemberRole } from "@prisma/client";
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 
-
-
-export async function POST(
-  req: Request
-) {
+export async function POST(req: Request) {
   try {
     const profile = await currentProfile();
     const { name, type } = await req.json();
@@ -29,14 +25,12 @@ export async function POST(
     }
 
     const channel = await db.channel.create({
-      data:{
-
+      data: {
         name,
         type,
-        profileId:profile.id,
-        serverId
-        
-      }
+        profileId: profile.id,
+        serverId,
+      },
     });
 
     return NextResponse.json(channel);

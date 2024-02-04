@@ -13,16 +13,13 @@ interface MemberIdPageProps {
   params: {
     memberId: string;
     serverId: string;
-  },
+  };
   searchParams: {
     video?: boolean;
-  }
+  };
 }
 
-const MemberIdPage = async ({
-  params,
-  searchParams,
-}: MemberIdPageProps) => {
+const MemberIdPage = async ({ params, searchParams }: MemberIdPageProps) => {
   const profile = await currentProfile();
 
   if (!profile) {
@@ -33,14 +30,17 @@ const MemberIdPage = async ({
     where: {
       serverId: params.serverId,
       profileId: profile.id,
-    }
+    },
   });
 
   if (!currentMember) {
     return redirect("/");
   }
 
-  const conversation = await getOrCreateConversation(currentMember.id, params.memberId);
+  const conversation = await getOrCreateConversation(
+    currentMember.id,
+    params.memberId
+  );
 
   if (!conversation) {
     return redirect(`/servers/${params.serverId}`);
@@ -48,32 +48,30 @@ const MemberIdPage = async ({
 
   const { memberOneId, memberTwoId } = conversation;
 
+  const otherMemberId =
+    memberOneId === currentMember.id ? memberTwoId : memberOneId;
 
-  const otherMemberId = memberOneId === currentMember.id ? memberTwoId : memberOneId;
+  const otherMember = await db.member.findFirst({
+    where: {
+      id: otherMemberId,
+    },
+  });
 
-
-  const otherMember=await db.member.findFirst({
-    where:{
-      id:otherMemberId,
-    }
-  }) 
-
-  if(!otherMember){
+  if (!otherMember) {
     return redirect(`/servers/${params.serverId}`);
   }
 
-  const otherMemberProfile=await db.profile.findFirst({
-    where:{
-      id:otherMember.profileId,
-    }
-  })
+  const otherMemberProfile = await db.profile.findFirst({
+    where: {
+      id: otherMember.profileId,
+    },
+  });
 
-  if(!otherMemberProfile){
+  if (!otherMemberProfile) {
     return redirect(`/servers/${params.serverId}`);
   }
 
-
-  return ( 
+  return (
     <div className="bg-white dark:bg-[#313338] flex flex-col h-full">
       <ChatHeader
         imageUrl={otherMemberProfile.imageUrl}
@@ -82,11 +80,7 @@ const MemberIdPage = async ({
         type="conversation"
       />
       {searchParams.video && (
-        <MediaRoom
-          chatId={conversation.id}
-          video={true}
-          audio={true}
-        />
+        <MediaRoom chatId={conversation.id} video={true} audio={true} />
       )}
       {!searchParams.video && (
         <>
@@ -114,7 +108,7 @@ const MemberIdPage = async ({
         </>
       )}
     </div>
-   );
-}
- 
+  );
+};
+
 export default MemberIdPage;

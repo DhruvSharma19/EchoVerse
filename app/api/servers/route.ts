@@ -5,8 +5,6 @@ import { ChannelType, MemberRole } from "@prisma/client";
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 
-
-
 export async function POST(req: Request) {
   try {
     const { name, imageUrl } = await req.json();
@@ -17,31 +15,30 @@ export async function POST(req: Request) {
     }
 
     const server = await db.server.create({
-      data: { 
+      data: {
         profileId: profile.id,
         name,
         imageUrl,
         inviteCode: uuidv4(),
-      }
+      },
     });
 
     await db.member.create({
-      data:{
-        profileId:profile.id,
-        role:MemberRole.ADMIN,
-        serverId:server.id
-      }
+      data: {
+        profileId: profile.id,
+        role: MemberRole.ADMIN,
+        serverId: server.id,
+      },
     });
 
-
     await db.channel.create({
-      data:{
-        name:"general",
-        profileId:profile.id,
-        serverId:server.id,
-        type:ChannelType.TEXT,
-      }
-    })
+      data: {
+        name: "general",
+        profileId: profile.id,
+        serverId: server.id,
+        type: ChannelType.TEXT,
+      },
+    });
 
     return NextResponse.json(server);
   } catch (error) {

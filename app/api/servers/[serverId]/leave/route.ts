@@ -21,7 +21,7 @@ export async function DELETE(
     const member = await db.member.deleteMany({
       where: {
         serverId: params.serverId,
-        profileId: profile.id
+        profileId: profile.id,
       },
     });
 

@@ -26,29 +26,29 @@ export async function DELETE(
       return new NextResponse("Channel ID missing", { status: 400 });
     }
 
-    const member=await db.member.findFirst({
-      where:{
-        serverId:serverId,
-        profileId:profile.id,
-        role:{
-          in:[MemberRole.ADMIN, MemberRole.MODERATOR],
-        }
-      }
-    })
+    const member = await db.member.findFirst({
+      where: {
+        serverId: serverId,
+        profileId: profile.id,
+        role: {
+          in: [MemberRole.ADMIN, MemberRole.MODERATOR],
+        },
+      },
+    });
 
-    if(!member){
-      return new NextResponse("Not Authorised",{status:401});
+    if (!member) {
+      return new NextResponse("Not Authorised", { status: 401 });
     }
 
-    const channel=await db.channel.delete({
-      where:{
-        id:params.channelId,
-        serverId:serverId,
-        name:{
-          not:"general"
-        }
-      }
-    })
+    const channel = await db.channel.delete({
+      where: {
+        id: params.channelId,
+        serverId: serverId,
+        name: {
+          not: "general",
+        },
+      },
+    });
 
     return NextResponse.json(channel);
   } catch (error) {
@@ -84,39 +84,32 @@ export async function PATCH(
       return new NextResponse("Name cannot be 'general'", { status: 400 });
     }
 
-    
-    const member=await db.member.findFirst({
-      where:{
-        profileId:profile.id,
-        serverId:serverId,
+    const member = await db.member.findFirst({
+      where: {
+        profileId: profile.id,
+        serverId: serverId,
         role: {
           in: [MemberRole.ADMIN, MemberRole.MODERATOR],
-        }
-      }
-    })
+        },
+      },
+    });
 
-
-    
-
-    if(!member){
-      return new NextResponse("Not Authorised",{status:401});
+    if (!member) {
+      return new NextResponse("Not Authorised", { status: 401 });
     }
 
-    
-
-    const channel=await db.channel.update({
-      where:{
-        id:params.channelId,
-        NOT:{
-          name:"general",
-        }
+    const channel = await db.channel.update({
+      where: {
+        id: params.channelId,
+        NOT: {
+          name: "general",
+        },
       },
-      data:{
+      data: {
         name,
         type,
-      }
-    })
-
+      },
+    });
 
     return NextResponse.json(channel);
   } catch (error) {

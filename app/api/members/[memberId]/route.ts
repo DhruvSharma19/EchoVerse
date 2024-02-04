@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 
-export async function GET( 
+export async function GET(
   req: Request,
   { params }: { params: { memberId: string } }
 ) {
@@ -22,7 +22,7 @@ export async function GET(
     if (!member) {
       return new NextResponse("Server ID missing", { status: 400 });
     }
-    
+
     return NextResponse.json(member);
   } catch (error) {
     console.log("[Member GET]", error);
@@ -93,12 +93,11 @@ export async function PATCH(
     const member = await db.member.update({
       where: {
         serverId: serverId,
-        profileId: {not:profile.id,},
-        id:params.memberId
+        profileId: { not: profile.id },
+        id: params.memberId,
       },
       data: {
         role,
-        
       },
     });
 

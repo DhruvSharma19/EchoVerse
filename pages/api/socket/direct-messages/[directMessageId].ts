@@ -7,11 +7,11 @@ import { db } from "@/lib/db";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponseServerIo,
+  res: NextApiResponseServerIo
 ) {
   if (req.method !== "DELETE" && req.method !== "PATCH") {
     return res.status(405).json({ error: "Method not allowed" });
-  } 
+  }
 
   try {
     const profile = await currentProfilePages(req);
@@ -26,38 +26,40 @@ export default async function handler(
       return res.status(400).json({ error: "Conversation ID missing" });
     }
 
-    const profileMember=await db.member.findFirst({
-      where:{
-        profileId:profile.id,
-      }
-    })
+    const profileMember = await db.member.findFirst({
+      where: {
+        profileId: profile.id,
+      },
+    });
 
     const conversation = await db.conversation.findFirst({
       where: {
         id: conversationId as string,
         OR: [
           {
-            memberOneId:profileMember?.id
+            memberOneId: profileMember?.id,
           },
           {
-            memberTwoId:profileMember?.id,
-            
-          }
-        ]
+            memberTwoId: profileMember?.id,
+          },
+        ],
       },
-    })
+    });
 
     if (!conversation) {
       return res.status(404).json({ error: "Conversation not found" });
     }
 
-    const memberId = conversation.memberOneId === profileMember?.id ? conversation.memberOneId : conversation.memberTwoId;
-    
-    const member=await db.member.findFirst({
-      where:{
-        id:memberId,
-      }
-    })
+    const memberId =
+      conversation.memberOneId === profileMember?.id
+        ? conversation.memberOneId
+        : conversation.memberTwoId;
+
+    const member = await db.member.findFirst({
+      where: {
+        id: memberId,
+      },
+    });
 
     if (!member) {
       return res.status(404).json({ error: "Member not found" });
@@ -67,8 +69,8 @@ export default async function handler(
       where: {
         id: directMessageId as string,
         conversationId: conversationId as string,
-      }
-    })
+      },
+    });
 
     if (!directMessage || directMessage.deleted) {
       return res.status(404).json({ error: "Message not found" });
@@ -92,8 +94,8 @@ export default async function handler(
           fileUrl: null,
           content: "This message has been deleted.",
           deleted: true,
-        }
-      })
+        },
+      });
     }
 
     if (req.method === "PATCH") {
@@ -107,14 +109,14 @@ export default async function handler(
         },
         data: {
           content,
-        }
-      })
+        },
+      });
     }
 
     const updateKey = `chat:${conversation.id}:messages:update`;
 
     res?.socket?.server?.io?.emit(updateKey, directMessage);
-  
+
     return res.status(200).json(directMessage);
   } catch (error) {
     console.log("[MESSAGE_ID]", error);

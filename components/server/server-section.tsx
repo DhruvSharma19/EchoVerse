@@ -6,14 +6,14 @@ import { Plus, Settings } from "lucide-react";
 import { ServerWithMembersWithProfiles } from "@/types";
 import { ActionTooltip } from "@/components/action-tooltip";
 import { useModal } from "@/hooks/use-modal-store";
- 
+
 interface ServerSectionProps {
   label: string;
   role?: MemberRole;
   sectionType: "channels" | "members";
   channelType?: ChannelType;
   server?: any;
-};
+}
 
 export const ServerSection = ({
   label,
@@ -50,5 +50,5 @@ export const ServerSection = ({
         </ActionTooltip>
       )}
     </div>
-  )
-}
+  );
+};

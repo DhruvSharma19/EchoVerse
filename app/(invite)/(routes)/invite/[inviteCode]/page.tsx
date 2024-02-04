@@ -9,11 +9,9 @@ interface InviteCodePageProps {
   params: {
     inviteCode: string;
   };
-};
+}
 
-const InviteCodePage = async ({
-  params
-}: InviteCodePageProps) => {
+const InviteCodePage = async ({ params }: InviteCodePageProps) => {
   const profile = await currentProfile();
 
   if (!profile) {
@@ -27,25 +25,23 @@ const InviteCodePage = async ({
   const existingServer = await db.server.findFirst({
     where: {
       inviteCode: params.inviteCode,
-    }
+    },
   });
-  if(existingServer){
-
-    const member=await db.member.create({
-      data:{
-        role:MemberRole.GUEST,
-        profileId:profile.id,
-        serverId:existingServer.id,
-      }
-    })
-    
+  if (existingServer) {
+    const member = await db.member.create({
+      data: {
+        role: MemberRole.GUEST,
+        profileId: profile.id,
+        serverId: existingServer.id,
+      },
+    });
   }
-  
+
   if (existingServer) {
     return redirect(`/servers/${existingServer.id}`);
   }
-  
+
   return null;
-}
- 
+};
+
 export default InviteCodePage;
