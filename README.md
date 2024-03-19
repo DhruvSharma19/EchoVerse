@@ -77,13 +77,33 @@ https://github.com/DhruvSharma19/EchoVerse/assets/112254552/2907e378-e008-4fa9-9
 ![Web capture_18-12-2023_142335_discord-zeta-black vercel app](https://github.com/DhruvSharma19/discord/assets/112254552/f80ec9e1-e540-42c7-bc77-2857f7fd8e60)
 
 
-
 ### 18. Tech Stack
-- **Next.js**: For building the frontend and server-side rendering.
-- **TypeScript**: For enhanced code quality and reliability.
-- **Socket.io**: Enabling real-time messaging.
-- **UploadThing**: Facilitating attachment uploads.
-- **Livekit**: Supporting audio and video call functionality.
-- **MongoDB**: For NoSQL data storage.
-- **Prisma**: To interact with the database efficiently.
-- **Clerk**: For user authentication.
+
+**Frontend**:
+
+- React: JavaScript library for building user interfaces.
+- Next.js: React framework for server-side rendering and routing.
+- Tailwind CSS: Utility-first CSS framework for styling.
+- Emoji-mart: Provides emoji picker components for React applications.
+- React Hook Form: Library for managing form state in React applications.
+- Socket.IO: Enables real-time, bidirectional, and event-based communication.
+- Zustand: State management library for React.
+- axios: Promise-based HTTP client for making AJAX requests.
+- Date-fns: Library for manipulating JavaScript dates.
+- UUID: Library for generating unique identifiers.
+
+**Backend**:
+
+- Prisma: Modern database toolkit for TypeScript and Node.js.
+- Socket.IO: For real-time communication between the client and server.
+
+**Styling and CSS**:
+
+- Tailwind CSS: Used for styling the application's components.
+
+**Build and Tooling**:
+
+- TypeScript: Superset of JavaScript for static typing.
+- ESLint: Tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
+- PostCSS: Tool for transforming CSS with JavaScript plugins.
+- Prisma CLI: Command-line interface for database schema management.
