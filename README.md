@@ -124,7 +124,7 @@ To get started with EchoVerse, follow these steps:
    ```
 
 3. **Set Up Environment Variables**:
-   Create a `.env` file in the root directory and add the necessary environment variables. Refer to `.env.example` for the required variables.
+   Create a `.env` file in the root directory and add the necessary environment variables.
 
 4. **Run the Development Server**:
    ```bash
@@ -146,9 +146,7 @@ We welcome contributions to EchoVerse! To contribute:
    Click the "Fork" button at the top right corner of the repository page.
 
 2. **Clone Your Fork**:
-   ```
-
-bash
+   ```bash
    git clone https://github.com/your-username/EchoVerse.git
    cd EchoVerse
    ```
@@ -178,6 +176,7 @@ bash
 We appreciate your contributions and will review your pull request as soon as possible!
 
 ## 🙏 Acknowledgements
+
 A big thank you to everyone who contributed to this project! We appreciate your support and feedback.
 
-If you have any questions or need assistance, feel free to open an issue or reach out to the project maintainers. Enjoy using FlowLink and happy coding! ✨
+If you have any questions or need assistance, feel free to open an issue or reach out to the project maintainers. Enjoy using EchoVerse and happy coding! ✨
