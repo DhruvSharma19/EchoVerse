@@ -8,9 +8,11 @@ EchoVerse is a cutting-edge web application designed for real-time messaging, mu
 🌐 **Website Link:** [EchoVerse](https://discord-zeta-black.vercel.app/)
 
 ## 🎬 Demo Video
+
 [Watch the demo](https://github.com/DhruvSharma19/EchoVerse/assets/112254552/2907e378-e008-4fa9-972f-c7efffe103a8)
 
 ## 🛠️ System Diagrams
+
 ![Diagram 1](https://github.com/DhruvSharma19/EchoVerse/assets/112254552/c3eb7585-591d-4c01-86d0-003e0437ba03)
 ![Diagram 2](https://github.com/DhruvSharma19/EchoVerse/assets/112254552/33621f03-4407-4e63-bff1-e41febc7c022)
 ![Diagram 3](https://github.com/DhruvSharma19/EchoVerse/assets/112254552/8eb2112c-1ee0-4999-b3f1-14e4a5c7e57e)
@@ -68,36 +70,25 @@ EchoVerse is a cutting-edge web application designed for real-time messaging, mu
 ### 17. Authentication with Clerk
 - 🔐 Implement secure user authentication using Clerk to safeguard user data.
 
-### 18. Tech Stack
+## 🛠 Technologies Used
 
 **Frontend**:
 
-- **React**: JavaScript library for building user interfaces.
-- **Next.js**: React framework for server-side rendering and routing.
-- **Tailwind CSS**: Utility-first CSS framework for styling.
-- **Emoji-mart**: Provides emoji picker components for React applications.
-- **React Hook Form**: Library for managing form state in React applications.
-- **Socket.IO**: Enables real-time, bidirectional, and event-based communication.
-- **Zustand**: State management library for React.
-- **axios**: Promise-based HTTP client for making AJAX requests.
-- **Date-fns**: Library for manipulating JavaScript dates.
-- **UUID**: Library for generating unique identifiers.
+- **React**: JavaScript library for building user interfaces. 💻
+- **Next.js**: React framework for server-side rendering and routing. 🚀
+- **Tailwind CSS**: Utility-first CSS framework for styling. 🎨
+- **Emoji-mart**: Provides emoji picker components for React applications. 🎉
+- **React Hook Form**: Library for managing form state in React applications. 📝
+- **Socket.IO**: Enables real-time, bidirectional, and event-based communication. 🔄
+- **Zustand**: State management library for React. 🧠
+- **axios**: Promise-based HTTP client for making AJAX requests. 🌐
+- **Date-fns**: Library for manipulating JavaScript dates. 📅
+- **UUID**: Library for generating unique identifiers. 🔑
 
 **Backend**:
 
-- **Prisma**: Modern database toolkit for TypeScript and Node.js.
-- **Socket.IO**: For real-time communication between the client and server.
-
-**Styling and CSS**:
-
-- **Tailwind CSS**: Used for styling the application's components.
-
-**Build and Tooling**:
-
-- **TypeScript**: Superset of JavaScript for static typing.
-- **ESLint**: Tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
-- **PostCSS**: Tool for transforming CSS with JavaScript plugins.
-- **Prisma CLI**: Command-line interface for database schema management.
+- **Prisma**: Modern database toolkit for TypeScript and Node.js. 🛠️
+- **Socket.IO**: For real-time communication between the client and server. 📡
 
 ## 🖼️ Screenshots
 
@@ -186,6 +177,7 @@ bash
 
 We appreciate your contributions and will review your pull request as soon as possible!
 
----
+## 🙏 Acknowledgements
+A big thank you to everyone who contributed to this project! We appreciate your support and feedback.
 
-Enjoy using EchoVerse and happy coding! 🎉
+If you have any questions or need assistance, feel free to open an issue or reach out to the project maintainers. Enjoy using FlowLink and happy coding! ✨
