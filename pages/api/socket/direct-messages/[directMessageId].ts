@@ -7,7 +7,7 @@ import { db } from "@/lib/db";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponseServerIo
+  res: NextApiResponseServerIo,
 ) {
   if (req.method !== "DELETE" && req.method !== "PATCH") {
     return res.status(405).json({ error: "Method not allowed" });
@@ -26,40 +26,41 @@ export default async function handler(
       return res.status(400).json({ error: "Conversation ID missing" });
     }
 
-    const profileMember = await db.member.findFirst({
-      where: {
-        profileId: profile.id,
-      },
-    });
-
     const conversation = await db.conversation.findFirst({
       where: {
         id: conversationId as string,
         OR: [
           {
-            memberOneId: profileMember?.id,
+            memberOne: {
+              profileId: profile.id,
+            }
           },
           {
-            memberTwoId: profileMember?.id,
-          },
-        ],
+            memberTwo: {
+              profileId: profile.id,
+            }
+          }
+        ]
       },
-    });
+      include: {
+        memberOne: {
+          include: {
+            profile: true,
+          }
+        },
+        memberTwo: {
+          include: {
+            profile: true,
+          }
+        }
+      }
+    })
 
     if (!conversation) {
       return res.status(404).json({ error: "Conversation not found" });
     }
 
-    const memberId =
-      conversation.memberOneId === profileMember?.id
-        ? conversation.memberOneId
-        : conversation.memberTwoId;
-
-    const member = await db.member.findFirst({
-      where: {
-        id: memberId,
-      },
-    });
+    const member = conversation.memberOne.profileId === profile.id ? conversation.memberOne : conversation.memberTwo;
 
     if (!member) {
       return res.status(404).json({ error: "Member not found" });
@@ -70,7 +71,14 @@ export default async function handler(
         id: directMessageId as string,
         conversationId: conversationId as string,
       },
-    });
+      include: {
+        member: {
+          include: {
+            profile: true,
+          }
+        }
+      }
+    })
 
     if (!directMessage || directMessage.deleted) {
       return res.status(404).json({ error: "Message not found" });
@@ -95,7 +103,14 @@ export default async function handler(
           content: "This message has been deleted.",
           deleted: true,
         },
-      });
+        include: {
+          member: {
+            include: {
+              profile: true,
+            }
+          }
+        }
+      })
     }
 
     if (req.method === "PATCH") {
@@ -110,7 +125,14 @@ export default async function handler(
         data: {
           content,
         },
-      });
+        include: {
+          member: {
+            include: {
+              profile: true,
+            }
+          }
+        }
+      })
     }
 
     const updateKey = `chat:${conversation.id}:messages:update`;

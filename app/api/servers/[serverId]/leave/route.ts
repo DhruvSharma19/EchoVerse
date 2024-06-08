@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 
-export async function DELETE(
+export async function PATCH(
   req: Request,
   { params }: { params: { serverId: string } }
 ) {
@@ -18,14 +18,28 @@ export async function DELETE(
       return new NextResponse("Server ID missing", { status: 400 });
     }
 
-    const member = await db.member.deleteMany({
+    const server = await db.server.update({
       where: {
-        serverId: params.serverId,
-        profileId: profile.id,
+        id: params.serverId,
+        profileId: {
+          not: profile.id
+        },
+        members: {
+          some: {
+            profileId: profile.id
+          }
+        }
       },
+      data: {
+        members: {
+          deleteMany: {
+            profileId: profile.id
+          }
+        }
+      }
     });
 
-    return NextResponse.json(member);
+    return NextResponse.json(server);
   } catch (error) {
     console.log("[SERVER_ID_LEAVE]", error);
     return new NextResponse("Internal Error", { status: 500 });

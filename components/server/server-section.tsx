@@ -12,8 +12,8 @@ interface ServerSectionProps {
   role?: MemberRole;
   sectionType: "channels" | "members";
   channelType?: ChannelType;
-  server?: any;
-}
+  server?: ServerWithMembersWithProfiles;
+};
 
 export const ServerSection = ({
   label,
@@ -50,5 +50,5 @@ export const ServerSection = ({
         </ActionTooltip>
       )}
     </div>
-  );
-};
+  )
+}

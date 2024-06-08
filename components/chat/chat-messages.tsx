@@ -16,9 +16,9 @@ const DATE_FORMAT = "d MMM yyyy, HH:mm";
 
 type MessageWithMemberWithProfile = Message & {
   member: Member & {
-    profile: Profile;
-  };
-};
+    profile: Profile
+  }
+}
 
 interface ChatMessagesProps {
   name: string;
@@ -45,18 +45,23 @@ export const ChatMessages = ({
 }: ChatMessagesProps) => {
   const queryKey = `chat:${chatId}`;
   const addKey = `chat:${chatId}:messages`;
-  const updateKey = `chat:${chatId}:messages:update`;
+  const updateKey = `chat:${chatId}:messages:update` 
 
   const chatRef = useRef<ElementRef<"div">>(null);
   const bottomRef = useRef<ElementRef<"div">>(null);
 
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, status } =
-    useChatQuery({
-      queryKey,
-      apiUrl,
-      paramKey,
-      paramValue,
-    });
+  const {
+    data,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+    status,
+  } = useChatQuery({
+    queryKey,
+    apiUrl,
+    paramKey,
+    paramValue,
+  });
   useChatSocket({ queryKey, addKey, updateKey });
   useChatScroll({
     chatRef,
@@ -64,7 +69,7 @@ export const ChatMessages = ({
     loadMore: fetchNextPage,
     shouldLoadMore: !isFetchingNextPage && !!hasNextPage,
     count: data?.pages?.[0]?.items?.length ?? 0,
-  });
+  })
 
   if (status === "loading") {
     return (
@@ -74,7 +79,7 @@ export const ChatMessages = ({
           Loading messages...
         </p>
       </div>
-    );
+    )
   }
 
   if (status === "error") {
@@ -85,13 +90,18 @@ export const ChatMessages = ({
           Something went wrong!
         </p>
       </div>
-    );
+    )
   }
 
   return (
     <div ref={chatRef} className="flex-1 flex flex-col py-4 overflow-y-auto">
       {!hasNextPage && <div className="flex-1" />}
-      {!hasNextPage && <ChatWelcome type={type} name={name} />}
+      {!hasNextPage && (
+        <ChatWelcome
+          type={type}
+          name={name}
+        />
+      )}
       {hasNextPage && (
         <div className="flex justify-center">
           {isFetchingNextPage ? (
@@ -109,12 +119,12 @@ export const ChatMessages = ({
       <div className="flex flex-col-reverse mt-auto">
         {data?.pages?.map((group, i) => (
           <Fragment key={i}>
-            {group.items.map((message: any) => (
+            {group.items.map((message: MessageWithMemberWithProfile) => (
               <ChatItem
                 key={message.id}
                 id={message.id}
                 currentMember={member}
-                memberId={message.memberId}
+                member={message.member}
                 content={message.content}
                 fileUrl={message.fileUrl}
                 deleted={message.deleted}
@@ -129,5 +139,5 @@ export const ChatMessages = ({
       </div>
       <div ref={bottomRef} />
     </div>
-  );
-};
+  )
+}
