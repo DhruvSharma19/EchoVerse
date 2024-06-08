@@ -1,90 +1,182 @@
-# Fullstack Discord Clone: Next.js 13, React, Socket.io, Prisma, Tailwind, MySQL | Full Course 2023
+# EchoVerse - Real-time Messaging and Communication Web Application 🚀
 
-![Copy of Copy of Copy of Fullstack Twitter Clone (5)](https://github.com/AntonioErdeljac/next13-discord-clone/assets/23248726/14e25e4f-eb83-44dd-8b97-4f2666b89386)
+EchoVerse is a cutting-edge web application designed for real-time messaging, multimedia sharing, and interactive communication. With a user-friendly interface and advanced features, EchoVerse enhances collaboration and connectivity among users. Below is an overview of the project, its features, and the technology stack employed.
 
+🧑‍💻 **Test User:** testUser@gmail.com  
+🔐 **Password:** 12345678
 
-This is a repository for Fullstack Discord Clone: Next.js 13, React, Socket.io, Prisma, Tailwind, MySQL | Full Course 2023
+🌐 **Website Link:** [EchoVerse](https://discord-zeta-black.vercel.app/)
 
-[VIDEO TUTORIAL](https://www.youtube.com/watch?v=ZbX4Ok9YX94)
+## 🎬 Demo Video
 
-Features:
+[Watch the demo](https://github.com/DhruvSharma19/EchoVerse/assets/112254552/2907e378-e008-4fa9-972f-c7efffe103a8)
 
-- Real-time messaging using Socket.io
-- Send attachments as messages using UploadThing
-- Delete & Edit messages in real time for all users
-- Create Text, Audio and Video call Channels
-- 1:1 conversation between members
-- 1:1 video calls between members
-- Member management (Kick, Role change Guest / Moderator)
-- Unique invite link generation & full working invite system
-- Infinite loading for messages in batches of 10 (tanstack/query)
-- Server creation and customization
-- Beautiful UI using TailwindCSS and ShadcnUI
-- Full responsivity and mobile UI
-- Light / Dark mode
-- Websocket fallback: Polling with alerts
-- ORM using Prisma
-- MySQL database using Planetscale
-- Authentication with Clerk
+## 🛠️ System Diagrams
 
-### Prerequisites
+![Diagram 1](https://github.com/DhruvSharma19/EchoVerse/assets/112254552/c3eb7585-591d-4c01-86d0-003e0437ba03)
+![Diagram 3](https://github.com/DhruvSharma19/EchoVerse/assets/112254552/8eb2112c-1ee0-4999-b3f1-14e4a5c7e57e)
+![Diagram 2](https://github.com/DhruvSharma19/EchoVerse/assets/112254552/33621f03-4407-4e63-bff1-e41febc7c022)
 
-**Node version 18.x.x**
+## ✨ Features
 
-### Cloning the repository
+### 1. Real-time Messaging using Socket.io
+- 💬 Instantly exchange messages with other users in real time.
 
-```shell
-git clone https://github.com/AntonioErdeljac/next13-discord-clone.git
-```
+### 2. Send Attachments as Messages using UploadThing
+- 📎 Share files, images, and multimedia seamlessly within the conversation.
 
-### Install packages
+### 3. Edit and Delete Messages in Real Time
+- ✏️ Modify or remove messages with updates reflected to all users in real time.
 
-```shell
-npm i
-```
+### 4. Create Text, Audio, and Video Call Channels
+- 🎤 Establish various communication channels, including text, audio, and video calls.
 
-### Setup .env file
+### 5. 1:1 Conversation Between Members
+- 👥 Engage in private one-on-one conversations with other members.
 
+### 6. 1:1 Video Calls Between Members
+- 📹 Make video calls with other members, enhancing visual communication.
 
-```js
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
-CLERK_SECRET_KEY=
-NEXT_PUBLIC_CLERK_SIGN_IN_URL=
-NEXT_PUBLIC_CLERK_SIGN_UP_URL=
-NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=
-NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=
+### 7. Member Management
+- 👮 Administer the community by managing members, including kicking users and changing roles from guest to moderator.
 
+### 8. Unique Invite Link Generation & Invite System
+- 🔗 Generate unique invite links for users and establish a comprehensive invite system for user onboarding.
 
-DATABASE_URL=
+### 9. Infinite Loading for Messages
+- 🔄 Enjoy a seamless experience with infinite message loading in batches of 10 using Tanstack/Query.
 
-UPLOADTHING_SECRET=
-UPLOADTHING_APP_ID=
+### 10. Server Creation and Customization
+- ⚙️ Set up and customize servers to meet your specific requirements.
 
-LIVEKIT_API_KEY=
-LIVEKIT_API_SECRET=
-NEXT_PUBLIC_LIVEKIT_URL=
-```
+### 11. Beautiful UI
+- 🎨 EchoVerse boasts a visually appealing user interface crafted using TailwindCSS and ShadcnUI.
 
-### Setup Prisma
+### 12. Full Responsivity and Mobile UI
+- 📱 Access EchoVerse from various devices, thanks to its responsive design.
 
-Add MySQL Database (I used PlanetScale)
+### 13. Light/Dark Mode
+- 🌗 Choose between light and dark modes to suit your preferences.
 
-```shell
-npx prisma generate
-npx prisma db push
+### 14. Websocket Fallback: Polling with Alerts
+- ⚠️ Ensure robust connectivity with a WebSocket fallback mechanism and receive alerts for any disruptions.
 
-```
+### 15. ORM using Prisma
+- 🛠️ Employ Prisma for seamless interaction with databases and managing application data.
 
-### Start the app
+### 16. NoSQL Database using MongoDB
+- 📊 Store and manage data efficiently using MongoDB as the NoSQL database.
 
-```shell
-npm run dev
-```
+### 17. Authentication with Clerk
+- 🔐 Implement secure user authentication using Clerk to safeguard user data.
 
-## Available commands
+## 🛠 Technologies Used
 
-Running commands with npm `npm run [command]`
+**Frontend**:
 
-| command         | description                              |
-| :-------------- | :--------------------------------------- |
-| `dev`           | Starts a development instance of the app |
+- **React**: JavaScript library for building user interfaces. 💻
+- **Next.js**: React framework for server-side rendering and routing. 🚀
+- **Tailwind CSS**: Utility-first CSS framework for styling. 🎨
+- **Emoji-mart**: Provides emoji picker components for React applications. 🎉
+- **React Hook Form**: Library for managing form state in React applications. 📝
+- **Socket.IO**: Enables real-time, bidirectional, and event-based communication. 🔄
+- **Zustand**: State management library for React. 🧠
+- **axios**: Promise-based HTTP client for making AJAX requests. 🌐
+- **Date-fns**: Library for manipulating JavaScript dates. 📅
+- **UUID**: Library for generating unique identifiers. 🔑
+
+**Backend**:
+
+- **Prisma**: Modern database toolkit for TypeScript and Node.js. 🛠️
+- **Socket.IO**: For real-time communication between the client and server. 📡
+
+## 🖼️ Screenshots
+
+![Screenshot 1](https://github.com/DhruvSharma19/discord/assets/112254552/9d6772d7-da4f-4b26-b210-3d24ab0f3833)
+![Screenshot 2](https://github.com/DhruvSharma19/discord/assets/112254552/5af345d1-3654-4841-b5af-fb0f3df1e8ea)
+![Screenshot 3](https://github.com/DhruvSharma19/discord/assets/112254552/5f7a1752-9497-4899-8c06-a5813e506e06)
+![Screenshot 4](https://github.com/DhruvSharma19/discord/assets/112254552/6b5b372c-ccaa-4156-8ea4-101ff5ad005a)
+![Screenshot 5](https://github.com/DhruvSharma19/discord/assets/112254552/6d87cb23-4fc5-4f5e-ae32-ff73d0f251a8)
+![Screenshot 6](https://github.com/DhruvSharma19/discord/assets/112254552/3a5c70cc-32af-4670-9518-7b0cf4edcdd7)
+![Screenshot 7](https://github.com/DhruvSharma19/discord/assets/112254552/b57d6a87-7aab-4127-9892-7af74e1bb9c4)
+![Screenshot 8](https://github.com/DhruvSharma19/discord/assets/112254552/4700c8ca-9f16-4a50-8c94-c60a05d6b0d0)
+![Screenshot 9](https://github.com/DhruvSharma19/discord/assets/112254552/1dc4f5cf-e1b2-421c-a7ae-6598d30c84df)
+![Screenshot 10](https://github.com/DhruvSharma19/discord/assets/112254552/19841f00-f6fd-45b6-860e-b646987df3db)
+![Screenshot 11](https://github.com/DhruvSharma19/discord/assets/112254552/0894db82-9e04-4d28-914d-daeba9ccafb3)
+![Screenshot 12](https://github.com/DhruvSharma19/discord/assets/112254552/afc81491-4ce2-4567-877b-367da0c4db1c)
+![Screenshot 13](https://github.com/DhruvSharma19/discord/assets/112254552/a4e41f4f-0576-4a47-9687-317eeb09ef8b)
+![Screenshot 14](https://github.com/DhruvSharma19/discord/assets/112254552/5547f610-e539-48e3-8a4f-326c0dd2de80)
+![Screenshot 15](https://github.com/DhruvSharma19/discord/assets/112254552/f80ec9e1-e540-42c7-bc77-2857f7fd8e60)
+
+## 🚀 Getting Started
+
+To get started with EchoVerse, follow these steps:
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/DhruvSharma19/EchoVerse.git
+   cd EchoVerse
+   ```
+
+2. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Set Up Environment Variables**:
+   Create a `.env` file in the root directory and add the necessary environment variables.
+
+4. **Run the Development Server**:
+   ```bash
+   npm run dev
+   ```
+   The application should now be running on `http://localhost:3000`.
+
+5. **Build for Production**:
+   ```bash
+   npm run build
+   npm start
+   ```
+
+## 🤝 Contributions
+
+We welcome contributions to EchoVerse! To contribute:
+
+1. **Fork the Repository**:
+   Click the "Fork" button at the top right corner of the repository page.
+
+2. **Clone Your Fork**:
+   ```bash
+   git clone https://github.com/your-username/EchoVerse.git
+   cd EchoVerse
+   ```
+
+3. **Create a New Branch**:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+4. **Make Your Changes**:
+   Implement your feature or fix the bug.
+
+5. **Commit Your Changes**:
+   ```bash
+   git add .
+   git commit -m "Add your commit message here"
+   ```
+
+6. **Push to Your Fork**:
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+
+7. **Create a Pull Request**:
+   Open a pull request from your forked repository's branch to the main branch of the original repository.
+
+We appreciate your contributions and will review your pull request as soon as possible!
+
+## 🙏 Acknowledgements
+
+A big thank you to everyone who contributed to this project! We appreciate your support and feedback.
+
+If you have any questions or need assistance, feel free to open an issue or reach out to the project maintainers. Enjoy using EchoVerse and happy coding! ✨
