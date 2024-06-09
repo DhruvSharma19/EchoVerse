@@ -9,7 +9,7 @@ EchoVerse is a cutting-edge web application designed for real-time messaging, mu
 
 ## 🎬 Demo Video
 
-[Watch the demo](https://github.com/DhruvSharma19/EchoVerse/assets/112254552/2907e378-e008-4fa9-972f-c7efffe103a8)
+[Watch the demo](https://github.com/DhruvSharma19/EchoVerse/assets/112254552/e18433b5-8f4f-445b-ac8a-53c253b2f580)
 
 ## 🛠️ System Diagrams
 
