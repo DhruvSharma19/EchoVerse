@@ -111,6 +111,13 @@ EchoVerse is a cutting-edge web application designed for real-time messaging, mu
 ![Screenshot 13](https://github.com/DhruvSharma19/discord/assets/112254552/a4e41f4f-0576-4a47-9687-317eeb09ef8b)
 ![Screenshot 14](https://github.com/DhruvSharma19/discord/assets/112254552/5547f610-e539-48e3-8a4f-326c0dd2de80)
 ![Screenshot 15](https://github.com/DhruvSharma19/discord/assets/112254552/f80ec9e1-e540-42c7-bc77-2857f7fd8e60)
+![1](https://github.com/DhruvSharma19/EchoVerse/assets/112254552/9c4293ad-ab28-4c16-85a6-ab35d9679d63)
+![2](https://github.com/DhruvSharma19/EchoVerse/assets/112254552/dda3b52b-9903-4f2d-8647-5ffac04c7edc)
+![3](https://github.com/DhruvSharma19/EchoVerse/assets/112254552/3ac3d621-832a-4403-96f7-06d5440ca95a)
+![4](https://github.com/DhruvSharma19/EchoVerse/assets/112254552/9b8c8cdd-008b-4831-8fd7-760c1ad810d8)
+![5](https://github.com/DhruvSharma19/EchoVerse/assets/112254552/ddba7b76-c371-46bc-b352-306cf7023abc)
+![6](https://github.com/DhruvSharma19/EchoVerse/assets/112254552/e02f0f6c-4b88-460c-bd17-5f5455aa284a)
+
 
 ## 🚀 Getting Started
 
