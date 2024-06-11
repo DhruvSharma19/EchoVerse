@@ -9,7 +9,7 @@ EchoVerse is a cutting-edge web application designed for real-time messaging, mu
 
 ## 🎬 Demo Video
 
-[Watch the demo](https://github.com/DhruvSharma19/EchoVerse/assets/112254552/2907e378-e008-4fa9-972f-c7efffe103a8)
+[Watch the demo](https://github.com/DhruvSharma19/EchoVerse/assets/112254552/e18433b5-8f4f-445b-ac8a-53c253b2f580)
 
 ## 🛠️ System Diagrams
 
@@ -92,6 +92,10 @@ EchoVerse is a cutting-edge web application designed for real-time messaging, mu
 
 ## 🖼️ Screenshots
 
+![Screenshot 2024-06-09 113718](https://github.com/DhruvSharma19/EchoVerse/assets/112254552/a2706e40-fe26-45cb-8a78-f1a0b47f2ebf)
+![Screenshot 2024-06-09 113729](https://github.com/DhruvSharma19/EchoVerse/assets/112254552/0ac95a37-ab58-4b9e-a02d-f593d9603cf0)
+![Screenshot 2024-06-09 113743](https://github.com/DhruvSharma19/EchoVerse/assets/112254552/7e37766d-bae0-4070-afc2-83f5069e7619)
+![Screenshot 2024-06-09 113749](https://github.com/DhruvSharma19/EchoVerse/assets/112254552/4c192661-3d65-442f-b570-79f6715741be)
 ![Screenshot 1](https://github.com/DhruvSharma19/discord/assets/112254552/9d6772d7-da4f-4b26-b210-3d24ab0f3833)
 ![Screenshot 2](https://github.com/DhruvSharma19/discord/assets/112254552/5af345d1-3654-4841-b5af-fb0f3df1e8ea)
 ![Screenshot 3](https://github.com/DhruvSharma19/discord/assets/112254552/5f7a1752-9497-4899-8c06-a5813e506e06)
@@ -107,6 +111,13 @@ EchoVerse is a cutting-edge web application designed for real-time messaging, mu
 ![Screenshot 13](https://github.com/DhruvSharma19/discord/assets/112254552/a4e41f4f-0576-4a47-9687-317eeb09ef8b)
 ![Screenshot 14](https://github.com/DhruvSharma19/discord/assets/112254552/5547f610-e539-48e3-8a4f-326c0dd2de80)
 ![Screenshot 15](https://github.com/DhruvSharma19/discord/assets/112254552/f80ec9e1-e540-42c7-bc77-2857f7fd8e60)
+![1](https://github.com/DhruvSharma19/EchoVerse/assets/112254552/9c4293ad-ab28-4c16-85a6-ab35d9679d63)
+![2](https://github.com/DhruvSharma19/EchoVerse/assets/112254552/dda3b52b-9903-4f2d-8647-5ffac04c7edc)
+![3](https://github.com/DhruvSharma19/EchoVerse/assets/112254552/3ac3d621-832a-4403-96f7-06d5440ca95a)
+![4](https://github.com/DhruvSharma19/EchoVerse/assets/112254552/9b8c8cdd-008b-4831-8fd7-760c1ad810d8)
+![5](https://github.com/DhruvSharma19/EchoVerse/assets/112254552/ddba7b76-c371-46bc-b352-306cf7023abc)
+![6](https://github.com/DhruvSharma19/EchoVerse/assets/112254552/e02f0f6c-4b88-460c-bd17-5f5455aa284a)
+
 
 ## 🚀 Getting Started
 
