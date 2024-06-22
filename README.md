@@ -64,8 +64,8 @@ EchoVerse is a cutting-edge web application designed for real-time messaging, mu
 ### 15. ORM using Prisma
 - 🛠️ Employ Prisma for seamless interaction with databases and managing application data.
 
-### 16. NoSQL Database using MongoDB
-- 📊 Store and manage data efficiently using MongoDB as the NoSQL database.
+### 16. PostgreSQL Database using NeonDB
+- 📊 Store and manage data efficiently using NeonDB as the database.
 
 ### 17. Authentication with Clerk
 - 🔐 Implement secure user authentication using Clerk to safeguard user data.
